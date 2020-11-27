@@ -1,10 +1,10 @@
 "use strict";
 // ==UserScript==
-// @name         EMP Check Helper
+// @name         FLS Comment Checker
 // @namespace    http://tampermonkey.net/
-// @version      0.41
-// @description  try to take over the world!
-// @author       Curtwagner1984
+// @version      0.1
+// @description  Credits to curtwagner who wrote and maintained the original script.
+// @author       goodguygregg
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
 // @include      https://www.empornium.me/torrents.php?*action=allcomments
 // @include      https://www.empornium.me/requests.php?*action=allcomments
