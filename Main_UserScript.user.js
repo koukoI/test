@@ -34,4 +34,5 @@
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/added-post-buttons/added-post-buttons.js
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/post-scanner.js
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/main-menu/main-menu.js
+// @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/main.js
 // ==/UserScript==
