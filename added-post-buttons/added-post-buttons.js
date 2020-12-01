@@ -12,7 +12,9 @@ function loadStyle() {
 
 function registerPostButtonCallbacks() {
     jQuery("body").on("click", "#added-buttons #comment-ok", function () {
-        let postIdString = jQuery(this).closest("div[id^=post]").attr("id");
+        //let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
+        let postIdString = jQuery(this).find("table[id^=post]").attr("id").replace("post", "");
+        console.log(postIdString);
         hidePost(postIdString);
         // jQuery(this).closest("div[id^=post]").hide();
         // updateProgressBarValue();
@@ -28,8 +30,11 @@ function registerPostButtonCallbacks() {
 
     jQuery("body").on("click", "#added-buttons #quote-comment", function () {
         insertModalHtml();
-        let commentHtml = jQuery(this).closest("div[id^=post]").find(".forum_post")[0].outerHTML;
-        let cloned = jQuery(this).closest("div[id^=post]").find(".forum_post").clone();
+        console.log("added-post-buttons TEST");
+        console.log(jQuery(this));
+        let commentHtml = jQuery(this).closest("table[id^=post]").find(".forum_post")[0].outerHTML;
+        console.log("added-post-buttons TEST2");
+        let cloned = jQuery(this).closest("table[id^=post]").find(".forum_post").clone();
         cloned.find(".smallhead").hide();
         cloned.find(".avatar").hide();
         cloned.find(".sig").hide();
@@ -45,7 +50,7 @@ function registerPostButtonCallbacks() {
 
 function addButtonsToPosts() {
     let buttonsHtml = GM_getResourceText("addedPostButtonsHtml");
-    jQuery("div[id^=post]").each(function () {
+    jQuery("table[id^=post]").each(function () {
         jQuery(this).find(".smallhead").find("td").append(buttonsHtml);
     });
 
