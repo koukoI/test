@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         EMP Check Helper (local)
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.12
 // @description  try to take over the world!
 // @author       Curtwagner1984
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
