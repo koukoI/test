@@ -3,7 +3,8 @@ console.log("main.js loaded...");
 let default_settings = {
     Page_Header: "Checking Posts #{%olderPostId%} - #{%newestPostId%} ({%totalPosts%} posts)",
     Report_Header: "Checked Posts {%olderPostId%} - {%newestPostId%} ({%totalPosts%} posts) :tick: \n \n",
-    Report_Comment: "Comment:{%reviewerComment%}\n \n{%quotedPost%}\n \n[hr]",
+    //Report_Comment: "Comment: {%reviewerComment%}\n \n{%quotedPost%}\n \n[hr]",
+    Report_Comment: "{%quotedPost%}\n \nComment: {%reviewerComment%}\n \n[hr]",
     Report_Footer: ""
 };
 
