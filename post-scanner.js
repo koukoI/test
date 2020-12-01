@@ -108,7 +108,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
     let finished = false;
     jQuery("table[id^=post]").each(function () {
         let postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));
-        console.log("TEST");
+        console.log(postId);
         if (postId < oldestComment) {
             finished = true;
             return false;
@@ -116,6 +116,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
             return true;
         } else {
             storedPostsHtml = storedPostsHtml + "\n" + jQuery(this)[0].outerHTML;
+            console.log(storedPostsHtml);
         }
     });
 
