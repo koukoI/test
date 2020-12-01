@@ -1,4 +1,3 @@
-"use strict";
 // ==UserScript==
 // @name         FLS Comment Checker
 // @namespace    http://tampermonkey.net/
@@ -36,3 +35,4 @@
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/main-menu/main-menu.js
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/main.js
 // ==/UserScript==
+// "use strict";
