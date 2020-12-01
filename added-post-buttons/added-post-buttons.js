@@ -13,7 +13,7 @@ function loadStyle() {
 function registerPostButtonCallbacks() {
     jQuery("body").on("click", "#added-buttons #comment-ok", function () {
         //let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
-        let postIdString = jQuery(this).find("table[id^=post]").attr("id").replace("post", "");
+        let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
         console.log(postIdString);
         hidePost(postIdString);
         // jQuery(this).closest("div[id^=post]").hide();
@@ -30,11 +30,12 @@ function registerPostButtonCallbacks() {
 
     jQuery("body").on("click", "#added-buttons #quote-comment", function () {
         insertModalHtml();
-        console.log("added-post-buttons TEST");
-        console.log(jQuery(this));
-        let commentHtml = jQuery(this).closest("table[id^=post]").find(".forum_post")[0].outerHTML;
+        console.log("added-post-buttons TEST1");
+        console.log(jQuery(this).closest("table[id^=post]"));
         console.log("added-post-buttons TEST2");
-        let cloned = jQuery(this).closest("table[id^=post]").find(".forum_post").clone();
+        let commentHtml = jQuery(this).closest("table[id^=post]").outerHTML;
+        console.log("added-post-buttons TEST3");
+        let cloned = jQuery(this).closest("table[id^=post]").clone();
         cloned.find(".smallhead").hide();
         cloned.find(".avatar").hide();
         cloned.find(".sig").hide();
