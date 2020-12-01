@@ -13,18 +13,6 @@ function addMainMenuToDom() {
     setHideSignatureLables();
 
     registerButtonsCallbacks();
-
-    // var test = jQuery("<button/>", {
-    //     text: "My Test Button",
-    //     class: "btn",
-    //     click: () => {
-    //         console.log(`this for my test button function: ${this}`);
-    //         jQuery(this).closest;
-    //         alert("hi");
-    //     }
-    // });
-
-    // jQuery("#myForm .form-container").append(test);
 }
 
 function setHideAvatarLables() {
