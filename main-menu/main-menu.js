@@ -57,7 +57,7 @@ function registerButtonsCallbacks() {
         let newestCommentId = -1;
         try {
             newestCommentId = parseInt(
-                jQuery("div[id^=post]").first().find(".forum_post .post_id").html().replace("#", "")
+                jQuery("table[id^=post]").first().find(".post_id").html().replace("#", "")
             );
         } catch (error) {
             console.error(
