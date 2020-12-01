@@ -115,7 +115,8 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
         } else if (postId > mostRecentComment) {
             return true;
         } else {
-            storedPostsHtml = storedPostsHtml + "\n" + jQuery(this)[0].outerHTML;
+            storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
+            console.log(jQuery(this).prev().outerHTML);
             console.log(storedPostsHtml);
         }
     });
