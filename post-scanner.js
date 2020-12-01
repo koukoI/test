@@ -1,5 +1,6 @@
 function removePostsOnPage() {
-    jQuery("div[id^=post]").remove();
+    jQuery("table[id^=post]").prev().remove();
+    jQuery("table[id^=post]").remove();
 }
 
 function clearSavedValues() {
@@ -104,8 +105,9 @@ function generateReportHeader(mostRecentComment, oldestComment) {
 
 function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) {
     let finished = false;
-    jQuery("div[id^=post]").each(function () {
+    jQuery("table[id^=post]").each(function () {
         let postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));
+        console.log("TEST");
         if (postId < oldestComment) {
             finished = true;
             return false;
