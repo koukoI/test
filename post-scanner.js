@@ -1,4 +1,5 @@
 function removePostsOnPage() {
+    // added
     jQuery("table[id^=post]").prev().remove();
     jQuery("table[id^=post]").remove();
 }
