@@ -113,6 +113,8 @@ function registerQuoteModalButtonsCallbacks() {
 
         jQuery(".modal-content #comment-text-area").val("");
         jQuery("#content #post" + postId).hide();
+        //added to remove the header
+        jQuery("#content #post" + postId).prev().hide();
         jQuery(".quote-comment-modal").hide();
         unregisterModalButtonsCallbacks();
         updateProgressBarValue();

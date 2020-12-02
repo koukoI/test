@@ -35,6 +35,7 @@ function scanCheck() {
 
 function hidePost(postIdString) {
     jQuery("#" + postIdString).hide();
+    jQuery("#" + postIdString).prev().hide()
     undoArray.push(postIdString);
     updateProgressBarValue();
 }
@@ -42,6 +43,7 @@ function hidePost(postIdString) {
 function undoHidePost() {
     let postIdString = undoArray.pop();
     jQuery("#" + postIdString).show();
+    jQuery("#" + postIdString).prev().show()
     updateProgressBarValue();
 }
 

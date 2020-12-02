@@ -30,11 +30,8 @@ function registerPostButtonCallbacks() {
 
     jQuery("body").on("click", "#added-buttons #quote-comment", function () {
         insertModalHtml();
-        console.log("added-post-buttons TEST1");
         console.log(jQuery(this).closest("table[id^=post]"));
-        console.log("added-post-buttons TEST2");
         let commentHtml = jQuery(this).closest("table[id^=post]").outerHTML;
-        console.log("added-post-buttons TEST3");
         let cloned = jQuery(this).closest("table[id^=post]").clone();
         cloned.find(".smallhead").hide();
         cloned.find(".avatar").hide();

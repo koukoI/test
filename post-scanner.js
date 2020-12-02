@@ -73,7 +73,10 @@ function scanPosts() {
 }
 
 function generateCheckingPageHeader(mostRecentComment, oldestComment) {
-    let numberOfComments = mostRecentComment - oldestComment;
+    //    changed to show the correct number of posts if filters are applied
+    //    let numberOfComments = mostRecentComment - oldestComment;
+    let numberOfComments = jQuery("table[id^=post]").length;
+
     let headerString;
     if (user_settings === undefined) {
         headerString = default_settings.Page_Header.replace("{%olderPostId%}", oldestComment)
@@ -87,6 +90,22 @@ function generateCheckingPageHeader(mostRecentComment, oldestComment) {
 
     return headerString;
 }
+
+//function generateCheckingPageHeader(mostRecentComment, oldestComment) {
+//    let numberOfComments = mostRecentComment - oldestComment;
+//    let headerString;
+//    if (user_settings === undefined) {
+//        headerString = default_settings.Page_Header.replace("{%olderPostId%}", oldestComment)
+//            .replace("{%newestPostId%}", mostRecentComment)
+//            .replace("{%totalPosts%}", numberOfComments);
+//    } else {
+//        headerString = user_settings.Page_Header.replace("{%olderPostId%}", oldestComment)
+//            .replace("{%newestPostId%}", mostRecentComment)
+//            .replace("{%totalPosts%}", numberOfComments);
+//    }
+//
+//    return headerString;
+//}
 
 function generateReportHeader(mostRecentComment, oldestComment) {
     let numberOfComments = mostRecentComment - oldestComment;
