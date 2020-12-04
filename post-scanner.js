@@ -59,6 +59,15 @@ function scanPosts() {
         //   "Checked comments " + commentString + " :tick: \n\n"
         // );
         jQuery("#quickpost").val(generateReportHeader(mostRecentComment, oldestComment));
+            // to make youtube embeds work
+        jQuery("div.youtube").on("click", function() {
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.setAttribute("src", "https://www.youtube-nocookie.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
+            this.innerHTML = "";
+            this.appendChild(iframe);
+        });
     } else {
         setTimeout(function () {
             let next_page = jQuery(".pager_next");
@@ -144,15 +153,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
         }
     });
 
-    // to make youtube embeds work
-    jQuery("div.youtube").on("click", function() {
-        var iframe = document.createElement("iframe");
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.setAttribute("src", "https://www.youtube-nocookie.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
-        this.innerHTML = "";
-        this.appendChild(iframe);
-      });
+
 
     return { isFinished: finished, storedHtml: storedPostsHtml };
 }
