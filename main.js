@@ -2,7 +2,7 @@ console.log("main.js loaded...");
 
 let default_settings = {
     Page_Header: "Checking Posts #{%olderPostId%} - #{%newestPostId%} ({%totalPosts%} posts)",
-    Report_Header: "Checked Posts {%olderPostId%} - {%newestPostId%} ({%totalPosts%} posts) :tick: \n \n",
+    Report_Header: "Checked Posts {%olderPostId%} - {%newestPostId%} ({%totalPosts%} posts) :tick: \n \n[hr] \n \n",
     //Report_Comment: "Comment: {%reviewerComment%}\n \n{%quotedPost%}\n \n[hr]",
     Report_Comment: "{%quotedPost%}\n \nComment: {%reviewerComment%}\n \n[hr]",
     Report_Footer: ""
@@ -35,7 +35,10 @@ function scanCheck() {
 
 function hidePost(postIdString) {
     jQuery("#" + postIdString).hide();
-    jQuery("#" + postIdString).prev().hide()
+    if (jQuery("#" + postIdString).prev().is("div.head")){
+        jQuery("#" + postIdString).prev().hide();
+    }
+
     undoArray.push(postIdString);
     updateProgressBarValue();
 }
@@ -43,7 +46,10 @@ function hidePost(postIdString) {
 function undoHidePost() {
     let postIdString = undoArray.pop();
     jQuery("#" + postIdString).show();
-    jQuery("#" + postIdString).prev().show()
+    if (jQuery("#" + postIdString).prev().is("div.head")){
+        jQuery("#" + postIdString).prev().show();
+    }
+
     updateProgressBarValue();
 }
 

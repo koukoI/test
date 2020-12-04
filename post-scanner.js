@@ -134,9 +134,13 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
         } else if (postId > mostRecentComment) {
             return true;
         } else {
-            storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
-            console.log(jQuery(this).prev().outerHTML);
-            console.log(storedPostsHtml);
+            // storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
+            // re-populates posts after scanning, if there is a header then include those
+            if (jQuery("#post" + postId).prev().is("div.head")){
+                storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
+            } else {
+                storedPostsHtml = storedPostsHtml + "\n" + jQuery(this)[0].outerHTML;
+            }
         }
     });
 

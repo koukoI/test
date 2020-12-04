@@ -112,9 +112,10 @@ function registerQuoteModalButtonsCallbacks() {
         generateQuotedText(postId, "t" + threadId, username, postLink, checkerComment);
 
         jQuery(".modal-content #comment-text-area").val("");
-        jQuery("#content #post" + postId).hide();
+        //jQuery("#content #post" + postId).hide();
         //added to remove the header
-        jQuery("#content #post" + postId).prev().hide();
+        //jQuery("#content #post" + postId).prev().hide();
+        hidePost("post" + postId);
         jQuery(".quote-comment-modal").hide();
         unregisterModalButtonsCallbacks();
         updateProgressBarValue();
@@ -164,24 +165,7 @@ async function generateQuotedText(postId, place, username, postLink, checkerComm
     Myinsert2(finalTextToBeInsertedInReport, "quickpost");
 }
 
-function MyQuote2(post, place, user, postLink, checkerComment) {
-    let s = postLink + "\n";
-    username = user;
-    postid = post;
-    section = GetSection();
-    ajax.get(section.link + "?action=get_post&section=" + section.name + "&body=1&post=" + postid, function (response) {
-        var params = place != "" ? "," + place + "," + postid : "";
-        s = s + "\n\n" + "[quote=" + username + params + "]" + html_entity_decode(response) + "[/quote]";
-        if (checkerComment != "") {
-            s = s + "\n\n" + "Comment: " + checkerComment + "\n\n[hr]";
-        } else {
-            s = s + "\n\n[hr]";
-        }
-        if ($("#quickpost").raw().value != "") s = "\n" + s + "\n";
-        Myinsert2(s, "quickpost");
-        // resize('quickpost');
-    });
-}
+
 
 function Myinsert2(f, textID) {
     var obj = document.getElementById(textID);
