@@ -152,7 +152,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
             console.log("checker is requests");
             jQuery("div[id^=post]").each(function () {
                 postId = parseInt(jQuery(this).attr("id").replace("post",""));
-                console.log(postId);
+                console.log("TESR" + postId);
                 if (postId < oldestComment) {
                     finished = true;
                     console.log(postId + " " + oldestComment);

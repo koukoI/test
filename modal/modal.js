@@ -100,8 +100,6 @@ function registerQuoteModalButtonsCallbacks() {
     });
 
     jQuery("body").on("click", ".quote-comment-modal #Ok-button", function () {
-
-        if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
             let postIdJquery = jQuery(".modal-content").find(".post_id");
             let postId = postIdJquery.html().replace("#", "");
             let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
@@ -114,22 +112,7 @@ function registerQuoteModalButtonsCallbacks() {
             jQuery(".quote-comment-modal").hide();
             unregisterModalButtonsCallbacks();
             updateProgressBarValue();
-        } else {
-            
-            let postIdJquery = jQuery(".modal-content").find("div[id^=post]");
-            console.log(postIdJquery);
-            let postId = postIdJquery.attr("id").replace("post","");
-            let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
-            let postLink = postIdJquery.attr("href");
-            let username = jQuery(".modal-content").find(".user_name a").html();
-            let checkerComment = jQuery(".modal-content #comment-text-area").val();
-            generateQuotedText(postId, "t" + threadId, username, postLink, checkerComment);
-            jQuery(".modal-content #comment-text-area").val("");
-            hidePost("post" + postId);
-            jQuery(".quote-comment-modal").hide();
-            unregisterModalButtonsCallbacks();
-            updateProgressBarValue();
-        }
+
     });
 }
 
