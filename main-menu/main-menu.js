@@ -63,7 +63,7 @@ function registerButtonsCallbacks() {
         jQuery("body").on("click", "#main-menu-button", function () {
             try {
                 newestCommentId = parseInt(
-                    jQuery("div[id^=post]").first().find(".post_id").html().replace("#", "")
+                    jQuery("div[id^=post]").attr("id").replace("post", "")
                 );
             } catch (error) {
                 console.error(
