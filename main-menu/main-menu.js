@@ -59,8 +59,8 @@ function registerButtonsCallbacks() {
             jQuery(".main-menu-form-popup").show();
         });
     } else {
+        console.log("main-menu.js");
         jQuery("body").on("click", "#main-menu-button", function () {
-            let newestCommentId = -1;
             try {
                 newestCommentId = parseInt(
                     jQuery("div[id^=post]").first().find(".post_id").html().replace("#", "")
