@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FLS Comment Checker
 // @namespace    http://tampermonkey.net/
-// @version      1.20
+// @version      1.21
 // @description  Credits to curtwagner who wrote and maintained the original script.
 // @author       goodguygregg
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
@@ -26,7 +26,7 @@
 // @resource     modalSettingsHtml https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/modal/modal-settings-html.html
 // @resource     modalStyle https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/modal/modal-style.css
 // @resource     sandboxHtml https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/sandbox/sandbox-html.html
-// @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/sandbox/gm-lib.js
+// @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/gm-lib.js
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/sandbox/sandbox.js
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/modal/modal.js
 // @require      https://raw.githubusercontent.com/goodguygregg-dev/emp-checker-ggg/main/progress-bar/progress-bar.js
