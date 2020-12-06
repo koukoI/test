@@ -43,6 +43,7 @@ function registerPostButtonCallbacks() {
         setModalContent(commentHtml);
 
         jQuery(".quote-comment-modal").show();
+        jQuery("#comment-text-area").focus();
 
         // jQuery(this).closest("div[id^=post]").hide();
         // updateProgressBarValue();

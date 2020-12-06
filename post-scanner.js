@@ -122,7 +122,7 @@ function generateReportHeader(mostRecentComment, oldestComment) {
 function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) {
     let finished = false;
     let postId = -1;
-
+    console.log("iteratethroughposts");
     //checking if checker is torrent, collage or forum comments
     if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
         console.log("checker is collage, forum or torrent comments");
