@@ -40,22 +40,41 @@ function setHideSignatureLables() {
 function registerButtonsCallbacks() {
     console.log("Registering main menu buttons callbacks...");
 
-    // shows the main menue
-    jQuery("body").on("click", "#main-menu-button", function () {
-        let newestCommentId = -1;
-        try {
-            newestCommentId = parseInt(
-                jQuery("table[id^=post]").first().find(".post_id").html().replace("#", "")
-            );
-        } catch (error) {
-            console.error(
-                `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
-            );
-            clearSavedValues();
-        }
-        jQuery("#most-recent-comment-input").val(newestCommentId);
-        jQuery(".main-menu-form-popup").show();
-    });
+
+    // shows the main menu
+    if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+        jQuery("body").on("click", "#main-menu-button", function () {
+            let newestCommentId = -1;
+            try {
+                newestCommentId = parseInt(
+                    jQuery("table[id^=post]").first().find(".post_id").html().replace("#", "")
+                );
+            } catch (error) {
+                console.error(
+                    `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
+                );
+                clearSavedValues();
+            }
+            jQuery("#most-recent-comment-input").val(newestCommentId);
+            jQuery(".main-menu-form-popup").show();
+        });
+    } else {
+        jQuery("body").on("click", "#main-menu-button", function () {
+            let newestCommentId = -1;
+            try {
+                newestCommentId = parseInt(
+                    jQuery("div[id^=post]").first().find(".post_id").html().replace("#", "")
+                );
+            } catch (error) {
+                console.error(
+                    `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
+                );
+                clearSavedValues();
+            }
+            jQuery("#most-recent-comment-input").val(newestCommentId);
+            jQuery(".main-menu-form-popup").show();
+        });
+    }
 
     // hides the main menue and clears saved data...
     jQuery("body").on("click", ".main-menu-form-popup #clear-data-button", function () {

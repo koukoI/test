@@ -34,6 +34,7 @@ function scanCheck() {
 }
 
 function hidePost(postIdString) {
+    console.log("hidePost");
     jQuery("#" + postIdString).hide();
     if (jQuery("#" + postIdString).prev().is("div.head")){
         jQuery("#" + postIdString).prev().hide();

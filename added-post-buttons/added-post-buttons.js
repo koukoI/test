@@ -5,34 +5,37 @@ function loadStyle() {
     GM_addStyle(buttonStyle);
 }
 
-// let mainMenuHtml = GM_getResourceText("mainMenuHtml");
-// let mainMenuElement = document.createElement('div');
-// mainMenuElement.innerHTML = mainMenuHtml;
-// document.body.appendChild(mainMenuElement);
-
 function registerPostButtonCallbacks() {
     jQuery("body").on("click", "#added-buttons #comment-ok", function () {
-        //let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
-        let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
-        console.log(postIdString);
-        hidePost(postIdString);
-        // jQuery(this).closest("div[id^=post]").hide();
-        // updateProgressBarValue();
+        if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+            let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
+            console.log(postIdString);
+            hidePost(postIdString);
+        } else {
+            let postIdString = jQuery(this).closest("div[id^=post]").attr("id");
+            console.log(postIdString);
+            hidePost(postIdString);
+        }
     });
 
     jQuery("body").on("click", "#added-buttons #undo-ok", function () {
         undoHidePost();
-        // let postIdString = jQuery(this).closest("div[id^=post]").attr("id");
-        // hidePost(postIdString);
-        // jQuery(this).closest("div[id^=post]").hide();
-        // updateProgressBarValue();
     });
 
     jQuery("body").on("click", "#added-buttons #quote-comment", function () {
         insertModalHtml();
-        console.log(jQuery(this).closest("table[id^=post]"));
-        let commentHtml = jQuery(this).closest("table[id^=post]").outerHTML;
-        let cloned = jQuery(this).closest("table[id^=post]").clone();
+        let commentHtml = undefined;
+        let cloned = undefined;
+
+        if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+            commentHtml = jQuery(this).closest("table[id^=post]").outerHTML;
+            cloned = jQuery(this).closest("table[id^=post]").clone();
+        } else {
+            commentHtml = jQuery(this).closest("div[id^=post]").outerHTML;
+            cloned = jQuery(this).closest("div[id^=post]").clone();
+        }
+        
+        
         cloned.find(".smallhead").hide();
         cloned.find(".avatar").hide();
         cloned.find(".sig").hide();
@@ -48,9 +51,16 @@ function registerPostButtonCallbacks() {
 
 function addButtonsToPosts() {
     let buttonsHtml = GM_getResourceText("addedPostButtonsHtml");
-    jQuery("table[id^=post]").each(function () {
-        jQuery(this).find(".smallhead").find("td").append(buttonsHtml);
-    });
+
+    if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+        jQuery("table[id^=post]").each(function () {
+            jQuery(this).find(".smallhead").find("td").append(buttonsHtml);
+        });
+    } else {
+        jQuery("div[id^=post]").each(function () {
+            jQuery(this).find(".smallhead").find("td").append(buttonsHtml);
+        });
+    }
 
     registerPostButtonCallbacks();
 }
