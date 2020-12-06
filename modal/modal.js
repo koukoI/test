@@ -100,25 +100,35 @@ function registerQuoteModalButtonsCallbacks() {
     });
 
     jQuery("body").on("click", ".quote-comment-modal #Ok-button", function () {
-        let postIdJquery = jQuery(".modal-content").find(".post_id");
 
-        let postId = postIdJquery.html().replace("#", "");
-        let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
-        let postLink = postIdJquery.attr("href");
-        let username = jQuery(".modal-content").find(".user_name a").html();
-
-        let checkerComment = jQuery(".modal-content #comment-text-area").val();
-
-        generateQuotedText(postId, "t" + threadId, username, postLink, checkerComment);
-
-        jQuery(".modal-content #comment-text-area").val("");
-        //jQuery("#content #post" + postId).hide();
-        //added to remove the header
-        //jQuery("#content #post" + postId).prev().hide();
-        hidePost("post" + postId);
-        jQuery(".quote-comment-modal").hide();
-        unregisterModalButtonsCallbacks();
-        updateProgressBarValue();
+        if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+            let postIdJquery = jQuery(".modal-content").find(".post_id");
+            let postId = postIdJquery.html().replace("#", "");
+            let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
+            let postLink = postIdJquery.attr("href");
+            let username = jQuery(".modal-content").find(".user_name a").html();
+            let checkerComment = jQuery(".modal-content #comment-text-area").val();
+            generateQuotedText(postId, "t" + threadId, username, postLink, checkerComment);
+            jQuery(".modal-content #comment-text-area").val("");
+            hidePost("post" + postId);
+            jQuery(".quote-comment-modal").hide();
+            unregisterModalButtonsCallbacks();
+            updateProgressBarValue();
+        } else {
+            let postIdJquery = jQuery(".modal-content").find(".post_id");
+            console.log(postIdJquery);
+            let postId = postIdJquery.html().replace("#", "");
+            let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
+            let postLink = postIdJquery.attr("href");
+            let username = jQuery(".modal-content").find(".user_name a").html();
+            let checkerComment = jQuery(".modal-content #comment-text-area").val();
+            generateQuotedText(postId, "t" + threadId, username, postLink, checkerComment);
+            jQuery(".modal-content #comment-text-area").val("");
+            hidePost("post" + postId);
+            jQuery(".quote-comment-modal").hide();
+            unregisterModalButtonsCallbacks();
+            updateProgressBarValue();
+        }
     });
 }
 
