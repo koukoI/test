@@ -9,11 +9,11 @@ function registerPostButtonCallbacks() {
     jQuery("body").on("click", "#added-buttons #comment-ok", function () {
         if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
             let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
-            console.log(postIdString);
+            console.log("torrent,forum,collage: " + postIdString);
             hidePost(postIdString);
         } else {
             let postIdString = jQuery(this).find("div[id^=post]").attr("id");
-            console.log(postIdString);
+            console.log("request: "+postIdString);
             hidePost(postIdString);
         }
     });
