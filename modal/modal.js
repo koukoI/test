@@ -100,8 +100,14 @@ function registerQuoteModalButtonsCallbacks() {
     });
 
     jQuery("body").on("click", ".quote-comment-modal #Ok-button", function () {
-            let postIdJquery = jQuery(".modal-content").find(".post_id");
-            let postId = postIdJquery.html().replace("#", "");
+        let postIdJquery = undefined;
+            if((document.URL.indexOf("https://www.empornium.me/collages.php?action=allcomments") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+                postIdJquery = jQuery(".modal-content").find(".post_id");
+            } else {
+                postIdJquery = jQuery(".modal-content").find("div[id^=post]").attr("id");
+            }
+            
+            let postId = postIdJquery.html().replace("post", "");
             let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
             let postLink = postIdJquery.attr("href");
             let username = jQuery(".modal-content").find(".user_name a").html();
