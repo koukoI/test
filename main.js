@@ -34,7 +34,7 @@ function scanCheck() {
 }
 
 function hidePost(postIdString) {
-    console.log("hidePost");
+    console.log("hidePost - postIdString: " + postIdString);
     jQuery("#" + postIdString).hide();
     if (jQuery("#" + postIdString).prev().is("div.head")){
         jQuery("#" + postIdString).prev().hide();
@@ -45,6 +45,7 @@ function hidePost(postIdString) {
 }
 
 function undoHidePost() {
+    console.log("hidePost - postIdString: " + postIdString);
     let postIdString = undoArray.pop();
     jQuery("#" + postIdString).show();
     if (jQuery("#" + postIdString).prev().is("div.head")){
