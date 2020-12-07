@@ -128,7 +128,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
         console.log("checker is collage, forum or torrent comments");
             jQuery("table[id^=post]").each(function () {
                 postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));
-                console.log(postId);
+                console.log("iterateThroughPosts: "+postId);
                 if (postId < oldestComment) {
                     finished = true;
                     return false;
@@ -152,7 +152,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
             console.log("checker is requests");
             jQuery("div[id^=post]").each(function () {
                 postId = parseInt(jQuery(this).attr("id").replace("post",""));
-                console.log("TESR" + postId);
+                console.log("iterateThroughPosts: "+postId);
                 if (postId < oldestComment) {
                     finished = true;
                     console.log(postId + " " + oldestComment);
