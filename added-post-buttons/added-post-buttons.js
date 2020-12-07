@@ -14,6 +14,7 @@ function registerPostButtonCallbacks() {
         } else {
             let postIdString = jQuery(this).find("div[id^=post]").attr("id");
             console.log("request: "+postIdString);
+            console.log(jQuery(this).find("div[id^=post]"));
             hidePost(postIdString);
         }
     });
