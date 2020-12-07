@@ -150,8 +150,8 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
             //checking if checker is requests or not since the pages are not structured in the same way
 
             console.log("checker is requests");
-            jQuery("div[id^=post]").each(function () {
-                postId = parseInt(jQuery(this).attr("id").replace("post",""));
+            jQuery("div[id^=content] .post_container".each(function () {
+                postId = parseInt(jQuery(this).attr("id").replace("content",""));
                 console.log("iterateThroughPosts: "+postId);
                 if (postId < oldestComment) {
                     finished = true;
