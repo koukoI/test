@@ -45,8 +45,10 @@ function hidePost(postIdString) {
 }
 
 function undoHidePost() {
-    console.log("hidePost - postIdString: " + postIdString);
+    
     let postIdString = undoArray.pop();
+    console.log("hidePost - postIdString: " + postIdString);
+    console.log(postIdString);
     jQuery("#" + postIdString).show();
     if (jQuery("#" + postIdString).prev().is("div.head")){
         jQuery("#" + postIdString).prev().show();
