@@ -107,7 +107,7 @@ function registerQuoteModalButtonsCallbacks() {
                 postIdJquery = jQuery(".modal-content").find("div[id^=post]").attr("id");
             }
             
-            let postId = postIdJquery.html().replace("post", "");
+            let postId = postIdJquery.replace("post", "");
             let threadId = postIdJquery.attr("href").match(/.*?id=(\d+)/)[1];
             let postLink = postIdJquery.attr("href");
             let username = jQuery(".modal-content").find(".user_name a").html();
