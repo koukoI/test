@@ -122,7 +122,7 @@ function registerQuoteModalButtonsCallbacks() {
                 console.log("---- debug start: " + "postIdJquerry: \n" + postIdJquery.html());
                 console.log("---- debug end");
                 let threadId = postIdJquery.find(".post_id").attr("href").match(/.*?id=(\d+)/)[1];
-                let postLink = postIdJquery.attr("href");
+                let threadId = postIdJquery.find(".post_id").attr("href");
                 let username = jQuery(".modal-content").find(".user_name a").html();
                 let checkerComment = jQuery(".modal-content #comment-text-area").val();
                 generateQuotedText(postId, "t" + threadId, username, postLink, checkerComment);
