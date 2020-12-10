@@ -146,13 +146,11 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
             });
     } else {
         // checking if checker is for requests
-        console.log("checker is request comments");
+            console.log("checker is request comments");
             //checking if checker is requests or not since the pages are not structured in the same way
 
-            console.log("checker is requests");
             jQuery("div[id^=post]").each(function () {
                 postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));
-                console.log("iterateThroughPosts: "+postId);
                 if (postId < oldestComment) {
                     finished = true;
                     console.log(postId + " " + oldestComment);
@@ -162,7 +160,6 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
                 } else {
                     // storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
                        storedPostsHtml = storedPostsHtml + "\n" + jQuery(this)[0].outerHTML;
-                    console.log(jQuery(this)[0].outerHTML);
                 }
             });
 }

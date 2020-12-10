@@ -13,8 +13,6 @@ function registerPostButtonCallbacks() {
             hidePost(postIdString);
         } else {
             let postIdString = jQuery(this).closest("div[id^=post]").attr("id");
-            console.log("request: "+postIdString);
-            console.log(jQuery(this).closest("div[id^=post]"));
             hidePost(postIdString);
         }
     });
