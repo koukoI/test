@@ -1,21 +1,22 @@
 #progress-bar-lable{
-    width: 100%;
-    text-align: center;
-    padding:3px;
-  }
+    position: absolute;
+	text-align: center;
+	padding: 3px;
+    display: inline;
+}
 
 #progress-bar {
-    background: green;
     z-index: 2;
-    height: 22px;
-    width: 50%;
+	background: green;
+    height: 20px;
+	width: 50%;
     opacity: 1;
 }
 
 .progress-bar-wrapper {
-background: grey;
-height: 20px;
-text-align: center;
-color: white;
-width: 100%;
+	background: grey;
+	height: 20px;
+	text-align: center;
+	color: white;
+	width: 100%;
 }
