@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FLS Comment Checker
 // @namespace    http://tampermonkey.net/
-// @version      1.43
+// @version      1.44
 // @description  Credits to curtwagner who wrote and maintained the original script.
 // @author       goodguygregg
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
