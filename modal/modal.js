@@ -101,7 +101,7 @@ function registerQuoteModalButtonsCallbacks() {
 
     jQuery("body").on("click", ".quote-comment-modal #Ok-button", function () {
         let postIdJquery = "";
-            if((document.URL.indexOf("https://www.empornium.me/collages.php") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+            if((document.URL.startsWith("https://www.empornium.me/collages.php") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
                 postIdJquery = jQuery(".modal-content").find(".post_id");
                 console.log(postIdJquery.html());
                 let postId = postIdJquery.html().replace("#","");
