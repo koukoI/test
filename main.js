@@ -9,9 +9,9 @@ let default_settings = {
 };
 // urls to determine active checker
 let collage_checker_string = "collages.php";
-let request_checker_string = "requests.php";
-let torrent_checker_string = "requests.php";
-let forum_checker_string = "torrents.php";
+let request_checker_string = "https://www.empornium.me/requests.php";
+let torrent_checker_string = "https://www.empornium.me/torrents.php";
+let forum_checker_string = "https://www.empornium.me/forum/recent";
 //document.URL.indexOf("https://www.empornium.me/collages.php")
 
 let user_settings = GM_SuperValue.get("user_settings");
