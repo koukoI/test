@@ -7,7 +7,7 @@ function loadStyle() {
 
 function registerPostButtonCallbacks() {
     jQuery("body").on("click", "#added-buttons #comment-ok", function () {
-        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php") >= 0)){
+        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
             let postIdString = jQuery(this).closest("table[id^=post]").attr("id");
             console.log("torrent,forum,collage: " + postIdString);
             hidePost(postIdString);
@@ -26,7 +26,7 @@ function registerPostButtonCallbacks() {
         let commentHtml = undefined;
         let cloned = undefined;
 
-        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php") >= 0)){
+        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
             commentHtml = jQuery(this).closest("table[id^=post]").outerHTML;
             cloned = jQuery(this).closest("table[id^=post]").clone();
         } else {
@@ -52,7 +52,7 @@ function registerPostButtonCallbacks() {
 function addButtonsToPosts() {
     let buttonsHtml = GM_getResourceText("addedPostButtonsHtml");
 
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php") >= 0)){
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
         jQuery("table[id^=post]").each(function () {
             jQuery(this).find(".smallhead").find("td").append(buttonsHtml);
         });

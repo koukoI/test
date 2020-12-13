@@ -43,7 +43,7 @@ function registerButtonsCallbacks() {
 
     
     // shows the main menu
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php") >= 0)){
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
         jQuery("body").on("click", "#main-menu-button", function () {
             let newestCommentId = -1;
             try {
