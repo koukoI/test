@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         FLS Comment Checker
 // @namespace    http://tampermonkey.net/
-// @version      1.55
+// @version      1.57
 // @description  Credits to curtwagner who wrote and maintained the original script.
 // @author       goodguygregg
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
 // @include      https://www.empornium.me/torrents.php?*action=allcomments
 // @include      https://www.empornium.me/requests.php?*action=allcomments
 // @include      https://www.empornium.me/forum/recent*
-// @include      https://www.empornium.me/collages.php*?action=allcomments
+// @include      https://www.empornium.me/collages.php*
 // @downloadURL    https://github.com/goodguygregg-dev/emp-checker-ggg/raw/main/Main_UserScript.user.js
 // @grant        GM_setValue
 // @grant        GM_getValue

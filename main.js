@@ -7,9 +7,9 @@ let default_settings = {
     Report_Comment: "{%quotedPost%}\n \nComment: {%reviewerComment%}\n \n[hr]",
     Report_Footer: ""
 };
-
 // urls to determine active checker
 let collage_checker_string = "collages.php";
+//document.URL.indexOf("https://www.empornium.me/collages.php")
 
 let user_settings = GM_SuperValue.get("user_settings");
 
