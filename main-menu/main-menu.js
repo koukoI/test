@@ -42,7 +42,7 @@ function registerButtonsCallbacks() {
 
 
     // shows the main menu
-    if((document.URL.startsWith("https://www.empornium.me/collages.php") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php?action=allcomments") >= 0)){
+    if((document.URL.startsWith("https://www.empornium.me/collages.php") >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php") >= 0)){
         jQuery("body").on("click", "#main-menu-button", function () {
             let newestCommentId = -1;
             try {
