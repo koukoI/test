@@ -9,7 +9,7 @@ let default_settings = {
 };
 
 // urls to determine active checker
-let collage_checker_string = "https://www.empornium.me/collages.php*?action=allcomments";
+let collage_checker_string = "https://www.empornium.me/collages.php?*&action=allcomments";
 
 let user_settings = GM_SuperValue.get("user_settings");
 
