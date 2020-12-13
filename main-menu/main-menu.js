@@ -41,6 +41,7 @@ function registerButtonsCallbacks() {
     console.log("Registering main menu buttons callbacks...");
 
 
+    console.log(collage_checker_string + " " + document.URL.indexOf(collage_checker_string));
     // shows the main menu
     if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf("https://www.empornium.me/forum/recent") >= 0) || (document.URL.indexOf("https://www.empornium.me/torrents.php") >= 0)){
         jQuery("body").on("click", "#main-menu-button", function () {
