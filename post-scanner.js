@@ -1,6 +1,6 @@
 function removePostsOnPage() {
     // added
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
             jQuery("table[id^=post]").prev().remove();
             jQuery("table[id^=post]").remove();
             console.log("remove posts on page not requests");
@@ -83,7 +83,7 @@ function generateCheckingPageHeader(mostRecentComment, oldestComment) {
     //    changed to show the correct number of posts if filters are applied
     //    let numberOfComments = mostRecentComment - oldestComment;
     let numberOfComments = -1;
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
         numberOfComments = jQuery("table[id^=post]").length;
     } else {
         numberOfComments = jQuery("div[id^=post]").length;
@@ -124,7 +124,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
     let postId = -1;
     console.log("iteratethroughposts");
     //checking if checker is torrent, collage or forum comments
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
         console.log("checker is collage, forum or torrent comments");
             jQuery("table[id^=post]").each(function () {
                 postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));

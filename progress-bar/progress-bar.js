@@ -15,7 +15,7 @@ function insertProgressBarHtml(){
 function updateProgressBarValue(){
     let totalValue = -1;
     let currentValue = -1;
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
         totalValue = jQuery("table[id^=post]").length;
         currentValue = jQuery("table[id^=post]").filter(":hidden").length;
     } else {

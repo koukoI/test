@@ -101,7 +101,7 @@ function registerQuoteModalButtonsCallbacks() {
 
     jQuery("body").on("click", ".quote-comment-modal #Ok-button", function () {
         let postIdJquery = "";
-        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrents_checker_string) >= 0)){
+        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
                 postIdJquery = jQuery(".modal-content").find(".post_id");
                 console.log(postIdJquery.html());
                 let postId = postIdJquery.html().replace("#","");
