@@ -2,7 +2,7 @@
 * submit report button.
 * reverse order of comments to check
 * don't increase size of images that are smaller than 500px
-
+* postcount in the report header
 
 getting post_id for requests checking tool:
 jQuery("div[id^=post]").find(".post_id").attr("href").replace("/requests.php?action=view&id=", "")
