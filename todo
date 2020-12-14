@@ -1,6 +1,7 @@
 * trailing and leading spaces in post number fields
 * submit report button.
 * reverse order of comments to check
+* don't increase size of images that are smaller than 500px
 
 
 getting post_id for requests checking tool:
