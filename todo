@@ -1,7 +1,7 @@
-* quoting long comments makes the modal buttons (submit and cancel) go outside the screen.
+* trailing and leading spaces in post number fields
 * submit report button.
 * reverse order of comments to check
-* embedded youtube links
+
 
 getting post_id for requests checking tool:
 jQuery("div[id^=post]").find(".post_id").attr("href").replace("/requests.php?action=view&id=", "")
