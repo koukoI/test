@@ -8,6 +8,8 @@
   z-index: 1;
   /* Sit on top */
   padding-top: 100px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   /* Location of the box */
   left: 0;
   top: 0;
