@@ -58,6 +58,7 @@ function undoHidePost() {
     jQuery("#" + postIdString).show();
     if (jQuery("#" + postIdString).prev().is("div.head")){
         jQuery("#" + postIdString).prev().show();
+        jQuery("body").find(".post_content img.scale_image").attr("width","500");
     }
 
     updateProgressBarValue();
