@@ -1,8 +1,10 @@
 * trailing and leading spaces in post number fields
-* submit report button.
-* reverse order of comments to check
-* don't increase size of images that are smaller than 500px
+* submit report button
 * postcount in the report header
+* fls report quote links broken
+* hide recent threads
+* hide normal quote button
+* koukol is a penisbutt
 
 getting post_id for requests checking tool:
 jQuery("div[id^=post]").find(".post_id").attr("href").replace("/requests.php?action=view&id=", "")
