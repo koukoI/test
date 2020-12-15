@@ -123,6 +123,8 @@ function generateReportHeader(mostRecentComment, oldestComment) {
 function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) {
     let finished = false;
     let postId = -1;
+    var postArray = [];
+    let tempPostHtml = "";
     console.log("iteratethroughposts");
     //checking if checker is torrent, collage or forum comments
     if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
@@ -139,9 +141,11 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
                     // storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
                     // re-populates posts after scanning, if there is a header then include those
                     if (jQuery("#post" + postId).prev().is("div.head")){
-                        storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
+                        tempPostHtml = "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
+                        postArray.push(tempPostHtml);
                     } else {
-                        storedPostsHtml = storedPostsHtml + "\n" + jQuery(this)[0].outerHTML;
+                        tempPostHtml = "\n" + jQuery(this)[0].outerHTML;
+                        postArray.push(tempPostHtml);
                     }
                 }
             });
@@ -160,11 +164,14 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
                     return true;
                 } else {
                     // storedPostsHtml = storedPostsHtml + "\n" + jQuery(this).prev()[0].outerHTML + "\n" + jQuery(this)[0].outerHTML;
-                       storedPostsHtml = storedPostsHtml + "\n" + jQuery(this)[0].outerHTML;
+                       tempPostHtml = "\n" + jQuery(this)[0].outerHTML;
+                       postArray.push(tempPostHtml);
                 }
             });
 }
-           console.log(postId);
-           console.log("is finished: " + finished);
+    postArray.reverse();
+    storedPostsHtml = postArray.join("\n");       
+    console.log(postId);
+    console.log("is finished: " + finished);
     return { isFinished: finished, storedHtml: storedPostsHtml };
 }
