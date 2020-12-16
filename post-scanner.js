@@ -106,7 +106,8 @@ function generateCheckingPageHeader(mostRecentComment, oldestComment) {
 }
 
 function generateReportHeader(mostRecentComment, oldestComment) {
-    let numberOfComments = mostRecentComment - oldestComment;
+    //let numberOfComments = mostRecentComment - oldestComment;
+    let numberOfComments = undoArray.length;
     let headerString;
     if (user_settings === undefined) {
         headerString = default_settings.Report_Header.replace("{%olderPostId%}", oldestComment)
