@@ -111,7 +111,7 @@ function generateReportHeader(mostRecentComment, oldestComment) {
     if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
         numberOfComments = jQuery("table[id^=post]").length;
     } else {
-        numberOfComments = jQuery("table[id^=post]").length;
+        numberOfComments = jQuery("div[id^=post]").length;
     }
     let headerString;
     if (user_settings === undefined) {
