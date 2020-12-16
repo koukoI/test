@@ -19,6 +19,7 @@ function clearSavedValues() {
 }
 
 function scanPosts() {
+    console.log("scanposts()");
     let mostRecentComment = GM_getValue("mostRecentComment");
     let oldestComment = GM_getValue("oldestComment");
     let storedPostsHtml = GM_getValue("storedPostsHtml");
@@ -123,15 +124,15 @@ function generateReportHeader(mostRecentComment, oldestComment) {
 function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) {
     let finished = false;
     let postId = -1;
-    var postArray = [];
+    
     let tempPostHtml = "";
-    console.log("iteratethroughposts");
+    console.log("iteratethroughposts()");
     //checking if checker is torrent, collage or forum comments
     if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
         console.log("checker is collage, forum or torrent comments");
             jQuery("table[id^=post]").each(function () {
                 postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));
-                console.log("iterateThroughPosts: "+postId);
+                //console.log("iterateThroughPosts: "+postId);
                 if (postId < oldestComment) {
                     finished = true;
                     return false;
@@ -158,7 +159,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
                 postId = parseInt(jQuery(this).find(".smallhead").find(".post_id").text().replace("#", ""));
                 if (postId < oldestComment) {
                     finished = true;
-                    console.log(postId + " " + oldestComment);
+                    // console.log(postId + " " + oldestComment);
                     return false;
                 } else if (postId > mostRecentComment) {
                     return true;
@@ -171,7 +172,7 @@ function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) 
 }
     postArray.reverse();
     storedPostsHtml = postArray.join("\n");       
-    console.log(postId);
+    //console.log(postId);
     console.log("is finished: " + finished);
     return { isFinished: finished, storedHtml: storedPostsHtml };
 }
