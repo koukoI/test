@@ -124,8 +124,9 @@ function generateReportHeader(mostRecentComment, oldestComment) {
 function iterateThroughPosts(mostRecentComment, oldestComment, storedPostsHtml) {
     let finished = false;
     let postId = -1;
-    
+    let postArray = [];
     let tempPostHtml = "";
+    postArray.push(storedPostsHtml);
     console.log("iteratethroughposts()");
     //checking if checker is torrent, collage or forum comments
     if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
