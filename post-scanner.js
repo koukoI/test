@@ -107,7 +107,12 @@ function generateCheckingPageHeader(mostRecentComment, oldestComment) {
 
 function generateReportHeader(mostRecentComment, oldestComment) {
     //let numberOfComments = mostRecentComment - oldestComment;
-    let numberOfComments = undoArray.length;
+    let numberOfComments = -1;
+    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
+        numberOfComments = jQuery("table[id^=post]").length;
+    } else {
+        numberOfComments = jQuery("table[id^=post]").length;
+    }
     let headerString;
     if (user_settings === undefined) {
         headerString = default_settings.Report_Header.replace("{%olderPostId%}", oldestComment)
