@@ -39,7 +39,7 @@ function registerPostButtonCallbacks() {
         cloned.find(".avatar").hide();
         cloned.find(".sig").hide();
         jQuery("body").find(".latest_threads").hide();
-        jQuery("body").find(".thin h2").hide(); 
+        jQuery("body").find(".box.pad.latest_threads").hide();
         commentHtml = cloned[0].outerHTML;
         setModalContent(commentHtml);
 
