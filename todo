@@ -1,5 +1,5 @@
 * trailing and leading spaces in post number fields
-* submit report button
+* being able to submit report to the checking thread
 * postcount in the report header
 * fls report quote links broken
 * hide recent threads
@@ -8,3 +8,4 @@
 * opening the settings page and pressing the top right "x" to close followed by quoting a comment. returning to settings will show the quote modal.
 * preview button in the settings modal throws and error and gets stuck on "updating" forever
 * inserting bbcode into header/footer etc in the settings does not work 
+* add cancel checking button and update the report header to reflect this
