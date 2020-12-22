@@ -14,6 +14,8 @@ function insertProgressBarHtml(){
     if(document.URL.indexOf(forum_checker_string) >= 0){
         jQuery("body").find(".latest_threads").hide();
         jQuery("body").find(".box.pad.latest_threads").hide();
+        jQuery("body").find("#forumfilterdiv.box.pad").hide()
+        jQuery("body").find("a#forumfilterbutton").html("(Show)");
     }
 
 }
