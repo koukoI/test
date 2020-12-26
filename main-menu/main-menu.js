@@ -31,10 +31,10 @@ function setHideBadgeLables() {
     let isHidingBadges = GM_getValue("isHidingBadges");
     if (isHidingBadges) {
         jQuery(".main-menu-form-popup #hide-badge-button").html("Show Badges");
-        jQuery(".badge").hide();
+        jQuery(".badges").hide();
     } else {
         jQuery(".main-menu-form-popup #hide-badge-button").html("Hide Badges");
-        jQuery(".badge").show();
+        jQuery(".badges").show();
     }
 }
 
