@@ -9,14 +9,14 @@ function addMainMenuToDom() {
     mainMenuElement.innerHTML = mainMenuHtml;
     document.body.appendChild(mainMenuElement);
    
-    setHideAvatarLables();
-	setHideBadgeLables();
-    setHideSignatureLables();
+    setHideAvatarLabels();
+	setHideBadgesLabels();
+    setHideSignatureLabels();
 
     registerButtonsCallbacks();
 }
 
-function setHideAvatarLables() {
+function setHideAvatarLabels() {
     let isHidingAvatars = GM_getValue("isHidingAvatars");
     if (isHidingAvatars) {
         jQuery(".main-menu-form-popup #hide-avatar-button").html("Show Avatars");
@@ -27,7 +27,7 @@ function setHideAvatarLables() {
     }
 }
 
-function setHideBadgeLables() {
+function setHideBadgesLabels() {
     let isHidingBadges = GM_getValue("isHidingBadges");
     if (isHidingBadges) {
         jQuery(".main-menu-form-popup #hide-badge-button").html("Show Badges");
@@ -38,7 +38,7 @@ function setHideBadgeLables() {
     }
 }
 
-function setHideSignatureLables() {
+function setHideSignatureLabels() {
     let isHidingSignature = GM_getValue("isHidingSignature");
     if (isHidingSignature) {
         jQuery(".main-menu-form-popup #hide-signatures-button").html("Show Signatures");
@@ -116,10 +116,10 @@ function registerButtonsCallbacks() {
             isHidingAvatars = !isHidingAvatars;
         }
         GM_setValue("isHidingAvatars", isHidingAvatars);
-        setHideAvatarLables(isHidingAvatars);
+        setHideAvatarLabels(isHidingAvatars);
     });
-
-    // hides/show badges
+	
+	// hides/show badges
     jQuery("body").on("click", ".main-menu-form-popup #hide-badge-button", function () {
         let isHidingBadges = GM_getValue("isHidingBadges");
         if (isHidingBadges) {
@@ -128,7 +128,7 @@ function registerButtonsCallbacks() {
             isHidingBadges = !isHidingBadges;
         }
         GM_setValue("isHidingBadges", isHidingBadges);
-        setHideBadgeLables(isHidingBadges);
+        setHideBadgesLabels(isHidingBadges);
     });
 
     // hides/show signatues
@@ -140,7 +140,7 @@ function registerButtonsCallbacks() {
             isHidingSignature = !isHidingSignature;
         }
         GM_setValue("isHidingSignature", isHidingSignature);
-        setHideSignatureLables(isHidingSignature);
+        setHideSignatureLabels(isHidingSignature);
     });
 
     // starts comment scan
@@ -150,7 +150,7 @@ function registerButtonsCallbacks() {
         if (mostRecentComment == "" || oldestComment == "") {
             alert("Both fields for comment numbers must be filled");
         } else if (mostRecentComment <= oldestComment) {
-            alert("Olderst comment must be a smaller number than the newest comment");
+            alert("Oldest comment must be a smaller number than the newest comment");
         } else {
             jQuery(".main-menu-form-popup").hide();
             GM_setValue("mostRecentComment", mostRecentComment);
