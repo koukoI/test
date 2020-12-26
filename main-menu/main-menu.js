@@ -10,6 +10,7 @@ function addMainMenuToDom() {
     document.body.appendChild(mainMenuElement);
    
     setHideAvatarLables();
+	setHideBadgeLables();
     setHideSignatureLables();
 
     registerButtonsCallbacks();
@@ -18,11 +19,22 @@ function addMainMenuToDom() {
 function setHideAvatarLables() {
     let isHidingAvatars = GM_getValue("isHidingAvatars");
     if (isHidingAvatars) {
-        jQuery(".main-menu-form-popup #hide-avatar-button").html("Show Avatrs");
+        jQuery(".main-menu-form-popup #hide-avatar-button").html("Show Avatars");
         jQuery(".avatar").hide();
     } else {
-        jQuery(".main-menu-form-popup #hide-avatar-button").html("Hide Avatrs");
+        jQuery(".main-menu-form-popup #hide-avatar-button").html("Hide Avatars");
         jQuery(".avatar").show();
+    }
+}
+
+function setHideBadgeLables() {
+    let isHidingBadges = GM_getValue("isHidingBadges");
+    if (isHidingBadges) {
+        jQuery(".main-menu-form-popup #hide-badge-button").html("Show Badges");
+        jQuery(".badge").hide();
+    } else {
+        jQuery(".main-menu-form-popup #hide-badge-button").html("Hide Badges");
+        jQuery(".badge").show();
     }
 }
 
@@ -105,6 +117,18 @@ function registerButtonsCallbacks() {
         }
         GM_setValue("isHidingAvatars", isHidingAvatars);
         setHideAvatarLables(isHidingAvatars);
+    });
+
+    // hides/show badges
+    jQuery("body").on("click", ".main-menu-form-popup #hide-badge-button", function () {
+        let isHidingBadges = GM_getValue("isHidingBadges");
+        if (isHidingBadges) {
+            isHidingBadges = !isHidingBadges;
+        } else {
+            isHidingBadges = !isHidingBadges;
+        }
+        GM_setValue("isHidingBadges", isHidingBadges);
+        setHideBadgeLables(isHidingBadges);
     });
 
     // hides/show signatues
