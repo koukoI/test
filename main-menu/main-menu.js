@@ -145,8 +145,8 @@ function registerButtonsCallbacks() {
 
     // starts comment scan
     jQuery("body").on("click", ".main-menu-form-popup #start-button", function () {
-        let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").val());
-        let oldestComment = parseInt(jQuery("#oldest-comment-input").val());
+        let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").val.trim());
+        let oldestComment = parseInt(jQuery("#oldest-comment-input").val.trim());
         if (mostRecentComment == "" || oldestComment == "") {
             alert("Both fields for comment numbers must be filled");
         } else if (mostRecentComment <= oldestComment) {
