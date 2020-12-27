@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Checker Goodies
 // @namespace    http://tampermonkey.net/
-// @version      1.64
+// @version      1.65
 // @description  Credits to curtwagner who wrote and maintained the original script.
 // @author       koukol
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
