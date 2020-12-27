@@ -18,7 +18,7 @@
 // @grant        GM_getResourceText
 // @resource     mainMenuStyle https://raw.githubusercontent.com/koukoI/test/goodies/main-menu/main-menu-style.css
 // @resource     mainMenuHtml https://raw.githubusercontent.com/koukoI/test/goodies/main-menu/main-menu-html.html
-// @resource     addedPostButtonsHtml https://raw.githubusercontent.comkoukoI/test/goodies/added-post-buttons/added-post-buttons-html.html
+// @resource     addedPostButtonsHtml https://raw.githubusercontent.com/koukoI/test/goodies/added-post-buttons/added-post-buttons-html.html
 // @resource     addedPostButtonsStyle https://raw.githubusercontent.com/koukoI/test/goodies/added-post-buttons/added-post-buttons-style.css
 // @resource     progressBarHtml https://raw.githubusercontent.com/koukoI/test/goodies/progress-bar/progress-bar-html.html
 // @resource     progressBarStyle https://raw.githubusercontent.com/koukoI/test/goodies/progress-bar/progress-bar-style.css
