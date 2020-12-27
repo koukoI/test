@@ -10,7 +10,7 @@ function addMainMenuToDom() {
     document.body.appendChild(mainMenuElement);
    
     setHideAvatarLabels();
-	setHideBadgesLabels();
+	setHideBadgesLabels(test);
     setHideSignatureLabels();
 
     registerButtonsCallbacks();
