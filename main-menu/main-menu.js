@@ -145,8 +145,9 @@ function registerButtonsCallbacks() {
 
     // starts comment scan
     jQuery("body").on("click", ".main-menu-form-popup #start-button", function () {
-        let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").val().trim());
-        let oldestComment = parseInt(jQuery("#oldest-comment-input").val().trim());
+        let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").value.trim());
+        console.log(mostRecentComment)
+        let oldestComment = parseInt(jQuery("#oldest-comment-input").val());
         if (mostRecentComment == "" || oldestComment == "") {
             alert("Both fields for comment numbers must be filled");
         } else if (mostRecentComment <= oldestComment) {
@@ -156,7 +157,7 @@ function registerButtonsCallbacks() {
             GM_setValue("mostRecentComment", mostRecentComment);
             GM_setValue("oldestComment", oldestComment);
             GM_setValue("isScaning", true);
-            scanPosts();
+            // scanPosts();
         }
     });
 }
