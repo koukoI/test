@@ -70,6 +70,8 @@ function registerButtonsCallbacks() {
             }
             jQuery("#most-recent-comment-input").val(newestCommentId);
             jQuery(".main-menu-form-popup").show();
+        // TO-DO: change button label to "Close form"
+        <button id="main-menu-button" value= "form close">"Close form"</button>
         });
     } else {
         console.log("main-menu.js");
@@ -87,6 +89,7 @@ function registerButtonsCallbacks() {
             jQuery("#most-recent-comment-input").val(newestCommentId);
             jQuery(".main-menu-form-popup").show();
         });
+    // TO-DO: change button label to "Close form"
     }
 
     // hides the main menue and clears saved data...
@@ -145,9 +148,9 @@ function registerButtonsCallbacks() {
 
     // starts comment scan
     jQuery("body").on("click", ".main-menu-form-popup #start-button", function () {
-        let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").value.trim());
+        let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").val());
         console.log(mostRecentComment)
-        let oldestComment = parseInt(jQuery("#oldest-comment-input").val());
+        let oldestComment = Number.parseInt(jQuery("#oldest-comment-input").val());
         if (mostRecentComment == "" || oldestComment == "") {
             alert("Both fields for comment numbers must be filled");
         } else if (mostRecentComment <= oldestComment) {
@@ -157,7 +160,7 @@ function registerButtonsCallbacks() {
             GM_setValue("mostRecentComment", mostRecentComment);
             GM_setValue("oldestComment", oldestComment);
             GM_setValue("isScaning", true);
-            // scanPosts();
+            scanPosts();
         }
     });
 }
