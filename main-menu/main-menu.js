@@ -41,63 +41,60 @@ function setHideSignatureLables() {
 function registerButtonsCallbacks() {
     console.log("Registering main menu buttons callbacks...");
 
-
-    
     // shows the main menu
-    if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
+    if(document.getElementById("main-menu-button").innerHTML = "Close Form") {
         jQuery("body").on("click", "#main-menu-button", function () {
-            let newestCommentId = -1;
-            try {
-                newestCommentId = parseInt(
-                    jQuery("table[id^=post]").first().find(".post_id").html().replace("#", "")
-                );
-            } catch (error) {
-                console.error(
-                    `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
-                );
-                clearSavedValues();
-            }
-            jQuery("#most-recent-comment-input").val(newestCommentId);
-            document.getElementById("#main-menu-button").innerHTML = "Close Form";  // testing this (kol)
-            jQuery(".main-menu-form-popup").show();
+            document.getElementById("main-menu-button").innerHTML = "Open Form";
+            jQuery(".main-menu-form-popup").hide();
         });
     } else {
-        console.log("main-menu.js");
-        jQuery("body").on("click", "main-menu-button", function () {
-            try {
-                newestCommentId = parseInt(
-                    jQuery("div[id^=post]").attr("id").replace("post", "")
-                );
-            } catch (error) {
-                console.error(
-                    `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
-                );
-                clearSavedValues();
-            }
-            jQuery("#most-recent-comment-input").val(newestCommentId);
-            document.getElementById("main-menu-button").innerHTML = "Close Form";  // testing this (kol)
-            jQuery(".main-menu-form-popup").show();
-        });
-    }
+        if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
+            jQuery("body").on("click", "#main-menu-button", function () {
+                document.getElementById("main-menu-button").innerHTML = "Close Form";
+                let newestCommentId = -1;
+                try {
+                    newestCommentId = parseInt(
+                        jQuery("table[id^=post]").first().find(".post_id").html().replace("#", "")
+                    );
+                } catch (error) {
+                    console.error(
+                        `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
+                    );
+                    clearSavedValues();
+                }
+                jQuery("#most-recent-comment-input").val(newestCommentId);
+                jQuery(".main-menu-form-popup").show();
+            });
+        } else {
+            console.log("main-menu.js");
+            jQuery("body").on("click", "#main-menu-button", function () {
+                document.getElementById("main-menu-button").innerHTML = "Close Form";
+                try {
+                    newestCommentId = parseInt(
+                        jQuery("div[id^=post]").attr("id").replace("post", "")
+                    );
+                } catch (error) {
+                    console.error(
+                        `Couldn't find posts on this page... Something is very wrong... Resetting. Btw, caught this error ${error}`
+                    );
+                    clearSavedValues();
+                }
+                jQuery("#most-recent-comment-input").val(newestCommentId);
+                jQuery(".main-menu-form-popup").show();
+            });
+        }
+    };
 
-    // hides the main menu (kol)
-    if(document.getElementById("main-menu-button").innerHTML="Close Form") {
-        jQuery("body").on("click", "main-menu-button", function () {
-            document.getElementById("main-menu-button").innerHTML = "Open Form";
-            jQuery(".main-menu-form-popup").hide(); 
-        });
-    }
-
-    // hides the main menue and clears saved data...
+    // hides the main menu and clears saved data...
     jQuery("body").on("click", ".main-menu-form-popup #clear-data-button", function () {
         clearSavedValues();
         jQuery(".main-menu-form-popup").hide();
     });
 
-    /* // hides the main menue
+    // hides the main menu
     jQuery("body").on("click", ".main-menu-form-popup #cancel-button", function () {
         jQuery(".main-menu-form-popup").hide();
-    }); */ 
+    });
 
     // shows settings modal
     jQuery("body").on("click", ".main-menu-form-popup #settings-button", function () {
