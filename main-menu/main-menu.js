@@ -6,7 +6,7 @@ function addMainMenuToDom() {
 
     let mainMenuHtml = GM_getResourceText("mainMenuHtml");
     let mainMenuElement = document.createElement("div");
-    mainMenuElement.setAttribute("class", "checker-button");
+    mainMenuElement.setAttribute("id", "checker-button");
     mainMenuElement.innerHTML = mainMenuHtml;
     document.body.appendChild(mainMenuElement);
    
