@@ -5,8 +5,8 @@ function addMainMenuToDom() {
     GM_addStyle(mainMenuStyle);
 
     let mainMenuHtml = GM_getResourceText("mainMenuHtml");
-    let mainMenuElement = document.createElement("div");
-    mainMenuElement.setAttribute("id", "checker-button");
+    let mainMenuElement = document.createElement("div");    
+    mainMenuElement.setAttribute("id", "checker-button"); // adds id to new div (kol)
     mainMenuElement.innerHTML = mainMenuHtml;
     document.body.appendChild(mainMenuElement);
    
@@ -58,11 +58,12 @@ function registerButtonsCallbacks() {
                 clearSavedValues();
             }
             jQuery("#most-recent-comment-input").val(newestCommentId);
+            document.getElementById("#main-menu-button").innerHTML = "Close Form";  // testing this (kol)
             jQuery(".main-menu-form-popup").show();
         });
     } else {
         console.log("main-menu.js");
-        jQuery("body").on("click", "#main-menu-button", function () {
+        jQuery("body").on("click", "main-menu-button", function () {
             try {
                 newestCommentId = parseInt(
                     jQuery("div[id^=post]").attr("id").replace("post", "")
@@ -74,7 +75,16 @@ function registerButtonsCallbacks() {
                 clearSavedValues();
             }
             jQuery("#most-recent-comment-input").val(newestCommentId);
+            document.getElementById("main-menu-button").innerHTML = "Close Form";  // testing this (kol)
             jQuery(".main-menu-form-popup").show();
+        });
+    }
+
+    // hides the main menu (kol)
+    if(document.getElementById("main-menu-button").innerHTML="Close Form") {
+        jQuery("body").on("click", "main-menu-button", function () {
+            document.getElementById("main-menu-button").innerHTML = "Open Form";
+            jQuery(".main-menu-form-popup").hide(); 
         });
     }
 
@@ -84,10 +94,10 @@ function registerButtonsCallbacks() {
         jQuery(".main-menu-form-popup").hide();
     });
 
-    // hides the main menue
+    /* // hides the main menue
     jQuery("body").on("click", ".main-menu-form-popup #cancel-button", function () {
         jQuery(".main-menu-form-popup").hide();
-    });
+    }); */ 
 
     // shows settings modal
     jQuery("body").on("click", ".main-menu-form-popup #settings-button", function () {

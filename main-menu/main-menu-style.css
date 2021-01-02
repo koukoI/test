@@ -21,11 +21,12 @@
 
 /* The popup form - hidden by default */
 .main-menu-form-popup {
+  width: 150px; /* changed width to match the #main-menu-button (kol) */
   display: none;
   position: fixed;
-  bottom: 15px;
+  bottom: 39px; /* raised position to unblock view of the #main-menu-button (kol) */
   right: 15px;
-  /*border: 3px solid #f1f1f1;*/
+  /* border: 3px solid #f1f1f1; */ 
   z-index: 9;
 }
 
