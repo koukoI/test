@@ -6,7 +6,7 @@ function addMainMenuToDom() {
 
     let mainMenuHtml = GM_getResourceText("mainMenuHtml");
     let mainMenuElement = document.createElement("div");    
-    mainMenuElement.setAttribute("id", "checker-button"); // adds id to new div (kol)
+    mainMenuElement.setAttribute("id", "checker-button"); // adds id to newly created div. OCD. Remember I told you I could not reference this div directly because it had no id/class whatsoever? ;) (kol)
     mainMenuElement.innerHTML = mainMenuHtml;
     document.body.appendChild(mainMenuElement);
    
@@ -42,15 +42,16 @@ function registerButtonsCallbacks() {
     console.log("Registering main menu buttons callbacks...");
 
     // shows the main menu
+    // dirty way of doing this, probably - check button label to determine if the form is open (kol)
     if(document.getElementById("main-menu-button").innerHTML = "Close Form") {
         jQuery("body").on("click", "#main-menu-button", function () {
-            document.getElementById("main-menu-button").innerHTML = "Open Form";
+            document.getElementById("main-menu-button").innerHTML = "Open Form"; // switches button label to opposite case (kol)
             jQuery(".main-menu-form-popup").hide();
         });
-    } else {
+    } else { // carries on with the original code, changing the button label on click, on both cases (kol)
         if((document.URL.indexOf(collage_checker_string) >= 0) || (document.URL.indexOf(forum_checker_string) >= 0) || (document.URL.indexOf(torrent_checker_string) >= 0)){
             jQuery("body").on("click", "#main-menu-button", function () {
-                document.getElementById("main-menu-button").innerHTML = "Close Form";
+                document.getElementById("main-menu-button").innerHTML = "Close Form";  // switches button label to opposite case (kol)
                 let newestCommentId = -1;
                 try {
                     newestCommentId = parseInt(
@@ -68,7 +69,7 @@ function registerButtonsCallbacks() {
         } else {
             console.log("main-menu.js");
             jQuery("body").on("click", "#main-menu-button", function () {
-                document.getElementById("main-menu-button").innerHTML = "Close Form";
+                document.getElementById("main-menu-button").innerHTML = "Close Form"; // switches button label to opposite case (kol)
                 try {
                     newestCommentId = parseInt(
                         jQuery("div[id^=post]").attr("id").replace("post", "")
@@ -91,7 +92,7 @@ function registerButtonsCallbacks() {
         jQuery(".main-menu-form-popup").hide();
     });
 
-    // hides the main menu
+    // hides the main menu  // this part shall be removed once the "Open form" button works as intended (kol)
     jQuery("body").on("click", ".main-menu-form-popup #cancel-button", function () {
         jQuery(".main-menu-form-popup").hide();
     });
