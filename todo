@@ -1,18 +1,13 @@
 * trailing and leading spaces in post number fields
-* submit report button.
-* reverse order of comments to check
-* don't increase size of images that are smaller than 500px
+* being able to submit report to the checking thread
 * postcount in the report header
-
-getting post_id for requests checking tool:
-jQuery("div[id^=post]").find(".post_id").attr("href").replace("/requests.php?action=view&id=", "")
-
-possible fix for youtube embeds not working
-jQuery("div.youtube").on("click", function() {
-  var iframe = document.createElement("iframe");
-  iframe.setAttribute("frameborder", "0");
-  iframe.setAttribute("allowfullscreen", "");
-  iframe.setAttribute("src", "https://www.youtube-nocookie.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
-  this.innerHTML = "";
-  this.appendChild(iframe);
-});
+* fls report quote links broken
+* hide recent threads
+* hide normal quote button
+* koukol is a penisbutt
+* opening the settings page and pressing the top right "x" to close followed by quoting a comment. returning to settings will show the quote modal.
+* preview button in the settings modal throws and error and gets stuck on "updating" forever
+* inserting bbcode into header/footer etc in the settings does not work 
+* add cancel checking button and update the report header to reflect this
+* button to scroll back to progressbar
+* hide badges setting

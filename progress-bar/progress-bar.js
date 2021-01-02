@@ -9,6 +9,15 @@ function loadProgressBarStyle(){
 function insertProgressBarHtml(){
     let progressBarHtml = GM_getResourceText("progressBarHtml");
     jQuery("#content").prepend(progressBarHtml);
+
+    // hides recent forum threads box
+    if(document.URL.indexOf(forum_checker_string) >= 0){
+        jQuery("body").find(".latest_threads").hide();
+        jQuery("body").find(".box.pad.latest_threads").hide();
+        jQuery("body").find("#forumfilterdiv.box.pad").hide()
+        jQuery("body").find("a#forumfilterbutton").html("(Show)");
+    }
+
 }
 
 

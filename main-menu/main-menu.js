@@ -9,36 +9,24 @@ function addMainMenuToDom() {
     mainMenuElement.innerHTML = mainMenuHtml;
     document.body.appendChild(mainMenuElement);
    
-    setHideAvatarLabels();
-    setHideBadgesLabels();
-    setHideSignatureLabels();
+    setHideAvatarLables();
+    setHideSignatureLables();
 
     registerButtonsCallbacks();
 }
 
-function setHideAvatarLabels() {
+function setHideAvatarLables() {
     let isHidingAvatars = GM_getValue("isHidingAvatars");
     if (isHidingAvatars) {
-        jQuery(".main-menu-form-popup #hide-avatar-button").html("Show Avatars");
+        jQuery(".main-menu-form-popup #hide-avatar-button").html("Show Avatrs");
         jQuery(".avatar").hide();
     } else {
-        jQuery(".main-menu-form-popup #hide-avatar-button").html("Hide Avatars");
+        jQuery(".main-menu-form-popup #hide-avatar-button").html("Hide Avatrs");
         jQuery(".avatar").show();
     }
 }
 
-function setHideBadgesLabels() {
-    let isHidingBadges = GM_getValue("isHidingBadges");
-    if (isHidingBadges) {
-        jQuery(".main-menu-form-popup #hide-badges-button").html("Show Badges");
-        jQuery(".badges").hide();
-    } else {
-        jQuery(".main-menu-form-popup #hide-badges-button").html("Hide Badges");
-        jQuery(".badges").show();
-    }
-}
-
-function setHideSignatureLabels() {
+function setHideSignatureLables() {
     let isHidingSignature = GM_getValue("isHidingSignature");
     if (isHidingSignature) {
         jQuery(".main-menu-form-popup #hide-signatures-button").html("Show Signatures");
@@ -70,8 +58,6 @@ function registerButtonsCallbacks() {
             }
             jQuery("#most-recent-comment-input").val(newestCommentId);
             jQuery(".main-menu-form-popup").show();
-        // TO-DO: change button label to "Close form"
-        <button id="main-menu-button" value= "form close">"Close form"</button>
         });
     } else {
         console.log("main-menu.js");
@@ -89,7 +75,6 @@ function registerButtonsCallbacks() {
             jQuery("#most-recent-comment-input").val(newestCommentId);
             jQuery(".main-menu-form-popup").show();
         });
-    // TO-DO: change button label to "Close form"
     }
 
     // hides the main menue and clears saved data...
@@ -119,19 +104,7 @@ function registerButtonsCallbacks() {
             isHidingAvatars = !isHidingAvatars;
         }
         GM_setValue("isHidingAvatars", isHidingAvatars);
-        setHideAvatarLabels(isHidingAvatars);
-    });
-	
-	// hides/show badges
-    jQuery("body").on("click", ".main-menu-form-popup #hide-badge-button", function () {
-        let isHidingBadges = GM_getValue("isHidingBadges");
-        if (isHidingBadges) {
-            isHidingBadges = !isHidingBadges;
-        } else {
-            isHidingBadges = !isHidingBadges;
-        }
-        GM_setValue("isHidingBadges", isHidingBadges);
-        setHideBadgesLabels(isHidingBadges);
+        setHideAvatarLables(isHidingAvatars);
     });
 
     // hides/show signatues
@@ -143,18 +116,17 @@ function registerButtonsCallbacks() {
             isHidingSignature = !isHidingSignature;
         }
         GM_setValue("isHidingSignature", isHidingSignature);
-        setHideSignatureLabels(isHidingSignature);
+        setHideSignatureLables(isHidingSignature);
     });
 
     // starts comment scan
     jQuery("body").on("click", ".main-menu-form-popup #start-button", function () {
         let mostRecentComment = parseInt(jQuery("#most-recent-comment-input").val());
-        console.log(mostRecentComment)
-        let oldestComment = Number.parseInt(jQuery("#oldest-comment-input").val());
+        let oldestComment = parseInt(jQuery("#oldest-comment-input").val());
         if (mostRecentComment == "" || oldestComment == "") {
             alert("Both fields for comment numbers must be filled");
         } else if (mostRecentComment <= oldestComment) {
-            alert("Oldest comment must be a smaller number than the newest comment");
+            alert("Olderst comment must be a smaller number than the newest comment");
         } else {
             jQuery(".main-menu-form-popup").hide();
             GM_setValue("mostRecentComment", mostRecentComment);

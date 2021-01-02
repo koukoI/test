@@ -186,6 +186,7 @@ async function generateQuotedText(postId, place, username, postLink, checkerComm
 
 
 function Myinsert2(f, textID) {
+    
     var obj = document.getElementById(textID);
 
     if (document.selection) {
