@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Checker Goodies
 // @namespace    http://tampermonkey.net/
-// @version      1.70
+// @version      1.70.0
 // @description  yadda-yadda
 // @author       koukol
 // @match        https://www.empornium.me/torrents.php?*action=allcomments
